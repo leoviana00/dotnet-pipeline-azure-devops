@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - refs/tags/project-one/*
+      - '*'
 pr: none
 
 pool:
@@ -19,7 +19,7 @@ variables:
   - group: acr
   - template: templates/dotnet/ci-vars-template.yml@templates
     parameters:
-      projectName: project-one
+      projectName: dotnet-pipeline-azure-devops
       dockerRegistryServiceConnectionName: acr-connection-aks
       dockerfile: 'Dockerfile'
       buildContext: '$(Build.SourcesDirectory)'
