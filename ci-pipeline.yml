@@ -24,7 +24,7 @@ resources:
       endpoint: 'leoviana00'
 
 variables:
-  - group: acr
+  - group: acr-variable-group
   - template: templates/dotnet/ci-vars-template.yml@templates
     parameters:
       projectName: dotnet-pipeline-azure-devops
