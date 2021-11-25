@@ -32,7 +32,7 @@ variables:
   parameters:
       projectName: dotnet-pipeline-azure-devops
 - name: k8sNamespace
-  value: gmsocial-dotnet
+  value: gmsocial
 
 
 stages:
