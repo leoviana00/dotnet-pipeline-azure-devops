@@ -24,11 +24,11 @@ variables:
   - group: acr-variable-group
   - template: templates/cicd-vars-pipeline.yml@templates
     parameters:
-          projectName: dotnet-pipeline-azure-devops
-          dockerRegistryServiceConnectionName: acr-connection-aks
-          dockerfile: '$(projectName)/Dockerfile'
-          buildContext: '$(Build.SourcesDirectory)'
-          chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
+        projectName: dotnet-pipeline-azure-devops
+        dockerRegistryServiceConnectionName: acr-connection-aks
+        dockerfile: '$(projectName)/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)'
+        chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
   - name: k8sNamespace
     value: gmservice-multistage
 
@@ -50,9 +50,7 @@ stages:
     variables:
     - group: aks-variable-group
     displayName: deploy helm chart into AKS
-    pool:
-      vmImage: ubuntu-latest
-    environment: dev-$(projectName)
+    environment: development-$(projectName)
     strategy:
       runOnce:
         deploy:
