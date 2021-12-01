@@ -20,7 +20,9 @@ trigger:
     include:
       - '*'
 
-pr: none
+pr: 
+- master
+- staging
 
 pool:
   vmImage: ubuntu-latest 
@@ -60,5 +62,4 @@ stages:
 #         deploy:
 #           steps:
 #           - template: templates/multistage/dotnet/cd-stages-template.yml@templates
-
 
