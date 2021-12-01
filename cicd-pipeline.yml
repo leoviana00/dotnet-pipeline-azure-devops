@@ -37,5 +37,5 @@ stages:
   jobs: 
   - job: 'Prebuild'
     steps:
-  - template: templates/cicd-stages-pipeline.yml@templates
+- template: templates/cicd-stages-pipeline.yml@templates
 
