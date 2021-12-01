@@ -20,6 +20,8 @@ trigger:
     include:
       - '*'
 
+pr: none
+
 pool:
   vmImage: ubuntu-latest 
 
@@ -45,7 +47,6 @@ stages:
     - script: echo Load templates
 - template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
 
-
 # - stage: Deploy
 #   displayName: deploy to dev
 #   jobs:
@@ -59,4 +60,3 @@ stages:
 #         deploy:
 #           steps:
 #           - template: templates/multistage/dotnet/cd-stages-template.yml@templates
-
