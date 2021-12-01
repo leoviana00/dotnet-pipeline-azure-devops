@@ -19,6 +19,7 @@ trigger:
 
 stages:
 - stage: Pre-build
+  displayName: 'Pre-build'
 
   variables:
   - group: acr-variable-group
@@ -31,7 +32,7 @@ stages:
           chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
   
   jobs: 
-  - job: Pre-build
+  - job: 'Pre-build'
     pool:
       vmImage: ubuntu-latest 
     steps:
