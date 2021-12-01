@@ -37,6 +37,6 @@ stages:
   jobs: 
   - job: 'Prebuild'
     steps:
-    - script: Load templates
+    - script: echo Load templates
 - template: templates/cicd-stages-pipeline.yml@templates
 
