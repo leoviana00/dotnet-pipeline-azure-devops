@@ -15,7 +15,10 @@ resources:
       endpoint: 'leoviana00'
 
 trigger:
-- none
+  batch: true
+  branches:
+    include:
+      - '*'
 
 pool:
   vmImage: ubuntu-latest 
