@@ -42,3 +42,20 @@ stages:
     - script: echo Load templates
 - template: templates/cicd-stages-pipeline.yml@templates
 
+
+- stage: Deploy
+  displayName: deploy
+  jobs:
+  - deployment: dev
+    variables:
+    - group: aks-variable-group
+    displayName: deploy helm chart into AKS
+    pool:
+      vmImage: ubuntu-latest
+    environment: dev-$(projectName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: templates/dotnet/cd-steps-template.yml@templates
+
