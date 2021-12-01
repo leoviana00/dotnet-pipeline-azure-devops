@@ -44,7 +44,7 @@ stages:
 
 
 - stage: Deploy
-  displayName: deploy
+  displayName: deploy to dev
   jobs:
   - deployment: dev
     variables:
