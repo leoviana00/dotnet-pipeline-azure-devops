@@ -20,10 +20,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest 
 
-stages:
-- stage: Pre-build
-
-  variables:
+variables:
   - group: acr-variable-group
   - template: templates/cicd-vars-pipeline.yml@templates
     parameters:
@@ -32,6 +29,9 @@ stages:
           dockerfile: '$(projectName)/Dockerfile'
           buildContext: '$(Build.SourcesDirectory)'
           chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
+
+stages:
+- stage: Pre-build
   
   jobs: 
   - job: Pre-build
