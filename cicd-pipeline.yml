@@ -29,10 +29,10 @@ variables:
     
 stages:
 - stage: Loading
-  job:
-  - jobs: Load template
+  jobs:
+  - job: Load template
     displayName: Carregando templates
-    
+
     steps: 
       - checkout: self
       - checkout: helmrepo 
