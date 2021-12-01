@@ -34,7 +34,7 @@ extends:
     buildContext: '$(Build.SourcesDirectory)'
     chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
 
-steps: 
+jobs: 
   - checkout: self
   - checkout: helmrepo 
   - template: templates/cicd-stages-pipeline.yml@templates
