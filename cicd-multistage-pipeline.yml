@@ -40,7 +40,7 @@ stages:
   - job: 'Loadtemplate'
     steps:
     - script: echo Load templates
-- template: templates/multistage/dotnet/cicd-stages-pipeline.yml@templates
+- template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
 
 
 - stage: Deploy
@@ -55,5 +55,5 @@ stages:
       runOnce:
         deploy:
           steps:
-          - template: templates/dotnet/cd-steps-template.yml@templates
+          - template: templates/multistage/dotnet/cd-stages-template.yml@templates
 
