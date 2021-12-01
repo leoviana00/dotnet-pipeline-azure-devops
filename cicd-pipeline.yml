@@ -25,16 +25,15 @@ resources:
 
 variables:
   - group: acr-variable-group
-extends:
-  template: templates/cicd-vars-pipeline.yml@templates
-  parameters:
-    projectName: dotnet-pipeline-azure-devops
-    dockerRegistryServiceConnectionName: acr-connection-aks
-    dockerfile: '$(projectName)/Dockerfile'
-    buildContext: '$(Build.SourcesDirectory)'
-    chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
+  - template: templates/cicd-vars-pipeline.yml@templates
+    parameters:
+      projectName: dotnet-pipeline-azure-devops
+      dockerRegistryServiceConnectionName: acr-connection-aks
+      dockerfile: '$(projectName)/Dockerfile'
+      buildContext: '$(Build.SourcesDirectory)'
+      chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
 
-jobs: 
+steps: 
   - checkout: self
   - checkout: helmrepo 
   - template: templates/cicd-stages-pipeline.yml@templates
