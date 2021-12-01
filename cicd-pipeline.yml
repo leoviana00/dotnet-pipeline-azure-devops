@@ -26,7 +26,7 @@ variables:
     parameters:
           projectName: dotnet-pipeline-azure-devops
           dockerRegistryServiceConnectionName: acr-connection-aks
-          dockerfile: '$(projectName)/Dockerfile'
+          dockerfile: 'Dockerfile'
           buildContext: '$(Build.SourcesDirectory)'
           chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
 
