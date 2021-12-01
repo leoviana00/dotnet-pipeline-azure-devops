@@ -31,7 +31,7 @@ variables:
           buildContext: '$(Build.SourcesDirectory)'
           chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
   - name: k8sNamespace
-  value: gmservice-multistage
+    value: gmservice-multistage
 
 stages:
 - stage: Prebuild
