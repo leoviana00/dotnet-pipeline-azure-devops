@@ -23,7 +23,6 @@ pool:
 variables:
   - group: acr-variable-group
   - template: templates/cicd-vars-pipeline.yml@templates
-  - template: templates/dotnet/cd-vars-template.yml@templates
     parameters:
           projectName: dotnet-pipeline-azure-devops
           dockerRegistryServiceConnectionName: acr-connection-aks
