@@ -23,12 +23,15 @@ pool:
 variables:
   - group: acr-variable-group
   - template: templates/cicd-vars-pipeline.yml@templates
+  - template: templates/dotnet/cd-vars-template.yml@templates
     parameters:
           projectName: dotnet-pipeline-azure-devops
           dockerRegistryServiceConnectionName: acr-connection-aks
           dockerfile: '$(projectName)/Dockerfile'
           buildContext: '$(Build.SourcesDirectory)'
           chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
+  - name: k8sNamespace
+  value: gmservice-multistage
 
 stages:
 - stage: Prebuild
