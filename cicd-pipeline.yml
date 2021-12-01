@@ -35,8 +35,6 @@ stages:
   displayName: 'Prebuild'
   
   jobs: 
-  - job: 'Prebuild'
-    steps:
   - template: templates/cicd-stages-pipeline.yml@templates
     parameters:
       projectName: dotnet-pipeline-azure-devops
