@@ -18,7 +18,8 @@ trigger:
 - none
 
 stages:
-- stage: Build
+- stage: Pre-build
+
   variables:
   - group: acr-variable-group
   - template: templates/cicd-vars-pipeline.yml@templates
@@ -28,9 +29,9 @@ stages:
           dockerfile: '$(projectName)/Dockerfile'
           buildContext: '$(Build.SourcesDirectory)'
           chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
-
+  
   jobs: 
-  - job: Build
+  - job: Pre-build
     pool:
       vmImage: ubuntu-latest 
 
