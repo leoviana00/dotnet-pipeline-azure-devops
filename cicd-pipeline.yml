@@ -17,6 +17,9 @@ resources:
 trigger:
 - none
 
+pool:
+  vmImage: ubuntu-latest 
+
 stages:
 - stage: Pre-build
 
@@ -32,8 +35,6 @@ stages:
   
   jobs: 
   - job: Pre-build
-    pool:
-      vmImage: ubuntu-latest 
 
     steps:
 
