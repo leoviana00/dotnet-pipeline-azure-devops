@@ -32,7 +32,7 @@ stages:
     #       chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
   
   jobs: 
-  - job: 'Pre-build'
+  - job: 'Prebuild'
     pool:
       vmImage: ubuntu-latest 
     steps:
