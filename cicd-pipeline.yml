@@ -1,12 +1,3 @@
-trigger:
-  branches:
-    include:
-      - '*'
-pr: none
-
-pool:
-  vmImage: ubuntu-latest 
-
 resources:
   repositories:
     # Adicionando repositório de templates base para o processo de cicd
@@ -23,25 +14,29 @@ resources:
       ref: 'refs/heads/master'
       endpoint: 'leoviana00'
 
-variables:
+trigger:
+- none
+
+stages:
+- stage: Build
+  variables:
   - group: acr-variable-group
   - template: templates/cicd-vars-pipeline.yml@templates
-    
-stages:
-- stage: Loading
-  jobs:
-  - job: Load template
-    displayName: Carregando templates
 
-    steps: 
-      - checkout: self
-      - checkout: helmrepo 
-      - template: templates/cicd-stages-pipeline.yml@templates
-        parameters:
-          projectName: dotnet-pipeline-azure-devops
-          dockerRegistryServiceConnectionName: acr-connection-aks
-          dockerfile: '$(projectName)/Dockerfile'
-          buildContext: '$(Build.SourcesDirectory)'
-          chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
+  jobs: Build
+  pool:
+    vmImage: ubuntu-latest 
+
+  steps:
+  
+  - checkout: self
+  - checkout: helmrepo 
+  - template: templates/cicd-stages-pipeline.yml@templates
+    parameters:
+      projectName: dotnet-pipeline-azure-devops
+      dockerRegistryServiceConnectionName: acr-connection-aks
+      dockerfile: '$(projectName)/Dockerfile'
+      buildContext: '$(Build.SourcesDirectory)'
+      chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
 
  
