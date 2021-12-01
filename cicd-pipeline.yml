@@ -32,10 +32,10 @@ variables:
 
 stages:
 - stage: Prebuild
-  displayName: 'Prebuild'
+  displayName: 'Load Template'
   
   jobs: 
-  - job: 'Load template'
+  - job: 'Loadtemplate'
     steps:
     - script: echo Load templates
 - template: templates/cicd-stages-pipeline.yml@templates
