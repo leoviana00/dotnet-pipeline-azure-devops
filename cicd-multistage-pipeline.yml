@@ -20,7 +20,9 @@ trigger:
     include:
       - '*'
 
-pr: none
+pr:  
+- master
+- staging
 
 pool:
   vmImage: ubuntu-latest 
