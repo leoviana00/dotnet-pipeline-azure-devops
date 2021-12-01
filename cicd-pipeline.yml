@@ -37,7 +37,6 @@ extends:
 steps: 
   - checkout: self
   - checkout: helmrepo 
-extend:
-  template: templates/cicd-stages-pipeline.yml@templates
+  - template: templates/cicd-stages-pipeline.yml@templates
   
  
