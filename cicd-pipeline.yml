@@ -24,12 +24,12 @@ stages:
   variables:
   - group: acr-variable-group
   # - template: templates/cicd-vars-pipeline.yml@templates
-    # parameters:
-    #       projectName: dotnet-pipeline-azure-devops
-    #       dockerRegistryServiceConnectionName: acr-connection-aks
-    #       dockerfile: '$(projectName)/Dockerfile'
-    #       buildContext: '$(Build.SourcesDirectory)'
-    #       chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
+    parameters:
+          projectName: dotnet-pipeline-azure-devops
+          dockerRegistryServiceConnectionName: acr-connection-aks
+          dockerfile: '$(projectName)/Dockerfile'
+          buildContext: '$(Build.SourcesDirectory)'
+          chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
   
   jobs: 
   - job: 'Prebuild'
