@@ -36,6 +36,7 @@ variables:
 steps: 
   - checkout: self
   - checkout: helmrepo 
+jobs:
   - template: templates/cicd-stages-pipeline.yml@templates
   
  
