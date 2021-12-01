@@ -37,10 +37,10 @@ stages:
   displayName: 'Load Template'
   
   jobs: 
-  - job: 'Loadtemplate'
-    steps:
-    - script: echo Load templates
-- template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
+  # - job: 'Loadtemplate'
+  #   steps:
+  #   - script: echo Load templates
+  - template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
 
 
 # - stage: Deploy
