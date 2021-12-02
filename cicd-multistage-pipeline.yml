@@ -39,15 +39,18 @@ variables:
   - name: k8sNamespace
     value: gmservice-multistage
 
-stages:
-- stage: Prebuild
-  displayName: 'Load Template'
-  
-  jobs: 
-  - job: 'Loadtemplate'
-    steps:
-    - script: echo Load templates
+steps:
 - template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
+
+# stages:
+# - stage: Prebuild
+#   displayName: 'Load Template'
+  
+#   jobs: 
+#   - job: 'Loadtemplate'
+#     steps:
+#     - script: echo Load templates
+# - template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
 
 # - stage: Deploy
 #   displayName: deploy to dev
