@@ -20,9 +20,7 @@ trigger:
     include:
       - '*'
 
-pr: 
-- master
-- staging
+pr: none
 
 pool:
   vmImage: ubuntu-latest 
@@ -40,17 +38,7 @@ variables:
     value: gmservice-multistage
 
 stages:
-- template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
-
-# stages:
-# - stage: Prebuild
-#   displayName: 'Load Template'
-  
-#   jobs: 
-#   - job: 'Loadtemplate'
-#     steps:
-#     - script: echo Load templates
-# - template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
+- template: templates/multistage/dotnet/cicd-stages-pipeline.yml@templates
 
 # - stage: Deploy
 #   displayName: deploy to dev
