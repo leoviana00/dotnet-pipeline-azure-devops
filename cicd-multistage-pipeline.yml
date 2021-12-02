@@ -18,10 +18,10 @@ trigger:
   batch: true
   branches:
     include:
-      - main
+      - master
       - staging
       - dev
-      
+
 pr: none
 
 pool:
