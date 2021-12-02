@@ -39,7 +39,7 @@ variables:
   - name: k8sNamespace
     value: gmservice-multistage
 
-steps:
+stages:
 - template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
 
 # stages:
