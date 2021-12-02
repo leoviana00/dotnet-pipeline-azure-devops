@@ -40,14 +40,13 @@ variables:
     value: gmservice-multistage
 
 stages:
-- stage: Build
-  displayName: 'Build and Push'
+- stage: Prebuild
+  displayName: 'Load Template'
   
   jobs: 
-  - job: 'Build'
+  - job: 'Loadtemplate'
     steps:
-    - checkout: self
-    - checkout: helmrepo
+    - script: echo Load templates
 - template: templates/multistage/dotnet/ci-stages-pipeline.yml@templates
 
 # - stage: Deploy
@@ -63,4 +62,3 @@ stages:
 #         deploy:
 #           steps:
 #           - template: templates/multistage/dotnet/cd-stages-template.yml@templates
-
