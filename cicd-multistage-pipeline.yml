@@ -18,7 +18,7 @@ trigger:
   batch: true
   branches:
     include:
-      - master
+      - releases/*
       - staging
       - dev
 
@@ -41,17 +41,3 @@ variables:
 
 stages:
 - template: templates/multistage/dotnet/cicd-stages-pipeline.yml@templates
-
-# - stage: Deploy
-#   displayName: deploy to dev
-#   jobs:
-#   - deployment: dev
-#     variables:
-#     - group: aks-variable-group
-#     displayName: deploy helm chart into AKS
-#     environment: development-$(projectName)
-#     strategy:
-#       runOnce:
-#         deploy:
-#           steps:
-#           - template: templates/multistage/dotnet/cd-stages-template.yml@templates
