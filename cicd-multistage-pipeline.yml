@@ -36,7 +36,8 @@ variables:
         chartHelmFile: 'azure-template-helm-chart/templates/dotnet/$(projectName)'
   - name: k8sNamespace
     value: gmservice-multistage
-  - buildConfiguration: 'Release'
+  - name: buildConfiguration
+    value: Release
 
 stages:
 - template: templates/multistage/dotnet/cicd-stages-pipeline.yml@templates
